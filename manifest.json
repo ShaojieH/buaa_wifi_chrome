@@ -1,0 +1,17 @@
+{
+    "name": "buaa_wifi",
+    "version": "1.0",
+    "content_scripts": [
+		{
+			"matches": ["https://gw.buaa.edu.cn/*"],
+
+			"js": ["src/inject.js"]
+		}
+	],
+
+    "web_accessible_resources": [
+        "data/accounts.json"
+    ],
+
+    "manifest_version": 2
+  }
