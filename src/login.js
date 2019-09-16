@@ -1,1 +1,1 @@
-document.getElementById("button").click();
+document.getElementById("login").click();

@@ -35,15 +35,21 @@ login = () => {
     chrome.tabs.executeScript(null, {file: "src/login.js"});
 }
 
+
+sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 logout = () => {    
     console.log('logging out');
 
     chrome.storage.local.get("username", (result)=>{    // TODO: fix
         account.username = result.username;
-        chrome.storage.local.get("password", (result)=>{
+        chrome.storage.local.get("password", async (result)=>{
             account.password = result.password;
             console.log("Loggin out of", account);
             inject();
+            await sleep(1000);
             chrome.tabs.executeScript(null, {file: "src/logout.js"});
         });
     });

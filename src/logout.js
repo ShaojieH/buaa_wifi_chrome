@@ -1,1 +1,1 @@
-document.getElementById("duankai").click();
+document.getElementById("logout").click();
